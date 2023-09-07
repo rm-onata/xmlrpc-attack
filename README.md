@@ -191,7 +191,7 @@ msf exploit(php_xmlrpc_eval) > exploit
 ```
 <br><br>
 ## XML-RPC remote code-injection
-### XML-RPC for PHP is affected by a remote code-injection vulnerability. Pear XML_RPC version 1.3.0 and earlier and PHP XMLRPC version 1.1 and earlier, are vulnerable to PHP remote code injection. The XML parser will pass the data in XML elements to PHP eval() without sanitizing the user input. Lack of parameter filtering allows a remote attacker to execute arbitrary code in the context of the web server.
+XML-RPC for PHP is affected by a remote code-injection vulnerability. Pear XML_RPC version 1.3.0 and earlier and PHP XMLRPC version 1.1 and earlier, are vulnerable to PHP remote code injection. The XML parser will pass the data in XML elements to PHP eval() without sanitizing the user input. Lack of parameter filtering allows a remote attacker to execute arbitrary code in the context of the web server.
   
  Exploit : 
 > The attacker sends the below XML data in the HTTP POST to the vulnerable server. The XML element <name> contains the PHP command injection. XML-RPC will pass the XML elements to PHP eval() without validating the user input. Upon execution, PHP command drops a malicious script to the tmp directory & modifies the file permission to allow execution.
