@@ -6,5 +6,5 @@ NOTE: As of WordPress 4.4, this amplification method no longer works. All system
 
 ## Usage
 ```
-$ ./wpxmlrpcbrute.py -c 1500 -u admin http://example.com/ wordlists/grimwepa_pw.txt
+$ ./wpxmlrpcbrute.py -c 1500 -u admin http://example.com/ wordlists.txt
 ```
