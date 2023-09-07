@@ -58,7 +58,7 @@ Exploiting the xmlrpc.php
     </methodResponse>
 
   ```
-
+<br><br>
 ## XML-RPC pingbacks attacks
 1. Distributed denial-of-service (DDoS) attacks<br>
 1. Cloudflare Protection Bypass (find real server ip)<br>
@@ -113,7 +113,7 @@ Content-Type: text/xml; charset=UTF-8
   </fault>
 </methodResponse>
 ```
-
+<br><br>
 ## Brute force attacks
 ```
 POST /xmlrpc.php HTTP/1.1
