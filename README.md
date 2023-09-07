@@ -174,3 +174,19 @@ Content-Type: text/xml; charset=UTF-8
   </params>
 </methodResponse>
 ```
+
+## PHP XML-RPC Arbitrary Code Execution
+This exploits an arbitrary code execution flaw discovered in many implementations of the PHP XML-RPC module. This flaw is exploitable through a number of PHP web applications, including but not limited to Drupal, Wordpress, Postnuke, and TikiWiki.
+<br><br>
+To display the available options, load the module within the Metasploit console and run the commands 'show options' or 'show advanced' :
+
+```
+msf > use exploit/unix/webapp/php_xmlrpc_eval
+msf exploit(php_xmlrpc_eval) > show targets
+    ...targets...
+msf exploit(php_xmlrpc_eval) > set TARGET < target-id >
+msf exploit(php_xmlrpc_eval) > show options
+    ...show and set options...
+msf exploit(php_xmlrpc_eval) > exploit
+```
+
